@@ -1,10 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
 import Header from "@/components/Header";
-
-const inter = Inter({ subsets: ["latin"] });
+import Pokemonsearch from "@/components/Pokemon/Pokemonsearch";
+import Pokemonlist from "@/components/Pokemon/Pokemonlist";
+import Pokemonitem from "@/components/Pokemon/Pokemonitem";
 
 export default function Home() {
   return (
@@ -17,8 +16,13 @@ export default function Home() {
       </Head>
       <Header title="pokedex " />
       <main className={styles.main}>
-        <div>First section</div>
-        <div>Two section</div>
+        <Pokemonsearch />
+        <Pokemonlist>
+          <Pokemonitem />
+          <Pokemonitem />
+          <Pokemonitem />
+          <Pokemonitem />
+        </Pokemonlist>
       </main>
     </>
   );
