@@ -1,0 +1,140 @@
+@import "../../styles/Mixins";
+
+.Header {
+  width: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+  background-color: #fff;
+
+  @include respond-to(mobile) {
+    .InnerHeader {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px 20px;
+      justify-content: space-between;
+      .title {
+        h2 {
+          font-size: 1.7rem;
+          color: black;
+        }
+      }
+      .Nav {
+        display: none;
+        flex-direction: row;
+        column-gap: 10px;
+        list-style: none;
+        li {
+          a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            opacity: 0.7;
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+        .activeLink {
+          font-weight: 700;
+          opacity: 1;
+        }
+      }
+      .NavDrop {
+        display: flex;
+        flex-direction: column;
+        column-gap: 10px;
+        list-style: none;
+        position: absolute;
+        right: 20px;
+        top: 40px;
+        li {
+          a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            opacity: 0.7;
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+        .activeLink {
+          font-weight: 700;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  @include respond-to(tablet) {
+    .InnerHeader {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px 20px;
+      justify-content: space-between;
+      .title {
+        h2 {
+          color: black;
+        }
+      }
+      .Nav {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        list-style: none;
+        li {
+          a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            opacity: 0.7;
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+        .activeLink {
+          font-weight: 700;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @include respond-to(desktop) {
+    .InnerHeader {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px 20px;
+      justify-content: space-between;
+      .title {
+        h2 {
+          color: black;
+        }
+      }
+      .Nav {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        list-style: none;
+        li {
+          a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            opacity: 0.7;
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+        .activeLink {
+          font-weight: 700;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
