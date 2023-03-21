@@ -4,8 +4,15 @@ import Header from "@/components/Header";
 import Pokemonsearch from "@/components/Pokemon/Pokemonsearch";
 import Pokemonlist from "@/components/Pokemon/Pokemonlist";
 import Pokemonitem from "@/components/Pokemon/Pokemonitem";
+import axios from "axios";
+import { useEffect, useState } from "react";
+export default function Home({ data }: any) {
+  const [Pokemons, setPokemons] = useState<any | undefined>([]);
 
-export default function Home() {
+  useEffect(() => {
+    setPokemons(data.results);
+  }, []);
+
   return (
     <>
       <Head>
@@ -18,12 +25,22 @@ export default function Home() {
       <main className={styles.main}>
         <Pokemonsearch />
         <Pokemonlist>
-          <Pokemonitem />
-          <Pokemonitem />
-          <Pokemonitem />
-          <Pokemonitem />
+          {Pokemons.map((Pokemon: any, index: any) => (
+            <Pokemonitem name={Pokemon.name} url={Pokemon.url} key={index} />
+          ))}
         </Pokemonlist>
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const { data } = await axios.get(
+    "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
+  );
+  return {
+    props: {
+      data,
+    }, // will be passed to the page component as props
+  };
 }

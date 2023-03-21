@@ -7,7 +7,7 @@ export interface IPokemonlistProps {
 export default function Pokemonlist({ children }: IPokemonlistProps) {
   return (
     <div className={styles.Pokemonlist}>
-      <div className="grid-container">{children}</div>
+      <div className={styles.container}>{children}</div>
     </div>
   );
 }

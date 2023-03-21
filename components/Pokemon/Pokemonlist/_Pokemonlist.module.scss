@@ -3,11 +3,13 @@
   min-height: 100vh;
   background-color: #fff;
   margin: 15px auto;
-  div {
+
+  .container {
     display: grid;
     grid-template-columns: auto auto;
     margin: auto;
     gap: 20px;
-    height: 250px;
+    height: 100%;
+    width: 100%;
   }
 }
