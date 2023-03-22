@@ -1,17 +1,23 @@
 import { create } from "zustand";
 
-type State = {
+export interface Pokemonsprops {
+  name: string;
+  url: string;
+}
+export interface Storeprops {
   count: number;
-  fetchedApi: number;
-  increment: () => void;
-  decrement: () => void;
-};
+  Pokemons: Pokemonsprops[];
+  getPokemons: (props: Pokemonsprops[]) => void;
+}
 
-const useStore = create<State>((set) => ({
+const useStore = create<Storeprops>((set) => ({
   count: 0,
-  fetchedApi: 0,
-  increment: () => set((state) => ({ count: state.count + 1 })),
-  decrement: () => set((state) => ({ count: state.count - 1 })),
+  Pokemons: [],
+  getPokemons: (props) => {
+    set((state) => ({
+      Pokemons: props,
+    }));
+  },
 }));
 
 export default useStore;
